@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — KnowledgeCoin</title>
+  <meta name="description" content="Learn about KnowledgeCoin's mission to reward readers worldwide with real tokens for consuming quality content." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><span class="logo-icon">📚</span><span>KnowledgeCoin</span></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="dashboard.html" id="nav-dashboard">Dashboard</a></li>
+    <li><a href="#" id="nav-logout" style="color:#f87171">Logout</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️</button>
+    <a href="auth.html" class="btn btn-primary btn-sm" id="nav-login">Get Started</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="min-height:40vh;display:flex;align-items:center;background:var(--gradient-hero);padding:0 5%;padding-top:calc(var(--nav-height) + 3rem);padding-bottom:3rem;">
+  <div class="fade-in">
+    <span class="section-label">Our Story</span>
+    <h1 class="section-title mt-1">Rewarding <span class="gradient-text">Curious Minds</span></h1>
+    <p style="color:var(--text-secondary);max-width:560px;line-height:1.7;margin-top:0.8rem;font-size:1.05rem;">
+      KnowledgeCoin was built on a simple belief: your time and attention have value. We tokenize that value and put it directly in your hands.
+    </p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section" style="background:var(--bg-alt);">
+  <div class="grid-2" style="align-items:center;max-width:1000px;margin:0 auto;gap:3rem;">
+    <div>
+      <span class="section-label">Mission</span>
+      <h2 class="section-title mt-1">Knowledge Should <span class="gradient-text">Pay You</span></h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-top:1rem;">
+        Every day millions of people read articles online, yet they receive nothing for their time. Advertisers earn billions from your attention. We think that's broken.
+      </p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-top:0.8rem;">
+        KnowledgeCoin flips this model. We distribute a portion of ad revenue directly back to readers as tokens — creating a fair, transparent economy where your curiosity pays dividends.
+      </p>
+      <div class="mt-3" style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div style="text-align:center;padding:1rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-glass);border-radius:12px;">
+          <div style="font-size:1.6rem;font-weight:800;background:var(--gradient-btn);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">12K+</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Readers</div>
+        </div>
+        <div style="text-align:center;padding:1rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-glass);border-radius:12px;">
+          <div style="font-size:1.6rem;font-weight:800;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">4.2M</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Tokens Paid</div>
+        </div>
+        <div style="text-align:center;padding:1rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-glass);border-radius:12px;">
+          <div style="font-size:1.6rem;font-weight:800;color:var(--accent-cyan);">250+</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Articles</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card" style="padding:2.5rem;text-align:center;">
+      <div style="font-size:5rem;margin-bottom:1rem;">📚</div>
+      <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Our Vision</h3>
+      <p style="color:var(--text-secondary);line-height:1.7;font-size:0.95rem;">
+        A world where every reader earns a fair share of the attention economy — democratizing access to knowledge and reward simultaneously.
+      </p>
+      <div class="mt-3">
+        <div class="badge badge-purple" style="font-size:0.85rem;padding:0.5rem 1rem;">🌍 Global & Borderless</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-label">Platform Features</span>
+    <h2 class="section-title">Everything You <span class="gradient-text">Need to Earn</span></h2>
+  </div>
+  <div class="grid-3" style="max-width:1000px;margin:0 auto;">
+    <div class="glass-card feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Instant Rewards</h3>
+      <p>Tokens are credited to your wallet in real-time as you complete articles. No waiting, no approval needed.</p>
+    </div>
+    <div class="glass-card feature-card">
+      <div class="feature-icon">🔐</div>
+      <h3>Secure & Transparent</h3>
+      <p>Your earnings are tracked transparently. Every token you earn is accounted for in your personal ledger.</p>
+    </div>
+    <div class="glass-card feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Progress Tracking</h3>
+      <p>Monitor your reading streaks, total time spent, and tokens earned from your personal dashboard.</p>
+    </div>
+    <div class="glass-card feature-card">
+      <div class="feature-icon">🌈</div>
+      <h3>Premium Content</h3>
+      <p>Curated articles from verified authors covering Tech, Finance, Health, Science and more.</p>
+    </div>
+    <div class="glass-card feature-card">
+      <div class="feature-icon">💱</div>
+      <h3>Flexible Redemption</h3>
+      <p>Redeem tokens for crypto, gift cards, or cash via PayPal and UPI. Your tokens, your choice.</p>
+    </div>
+    <div class="glass-card feature-card">
+      <div class="feature-icon">📱</div>
+      <h3>Works Everywhere</h3>
+      <p>Fully responsive design that works seamlessly on desktop, tablet, and mobile devices.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOKEN ECONOMY -->
+<section class="section" style="background:var(--bg-alt);">
+  <div class="section-header">
+    <span class="section-label">Token Economy</span>
+    <h2 class="section-title">How Tokens Are <span class="gradient-text">Distributed</span></h2>
+  </div>
+  <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;">
+    <div class="glass-card" style="padding:1.5rem;display:flex;align-items:center;gap:1.5rem;">
+      <div class="coin coin-lg">🪙</div>
+      <div>
+        <h4 style="font-weight:700;margin-bottom:0.3rem;">Complete an Article</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Read for 60+ seconds and scroll through the full content</p>
+      </div>
+      <div style="margin-left:auto;font-size:1.3rem;font-weight:800;color:var(--accent-gold);white-space:nowrap">+10–50 🪙</div>
+    </div>
+    <div class="glass-card" style="padding:1.5rem;display:flex;align-items:center;gap:1.5rem;">
+      <div style="font-size:2.5rem;">🔥</div>
+      <div>
+        <h4 style="font-weight:700;margin-bottom:0.3rem;">Daily Reading Streak</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Read every day to maintain and grow your streak bonus</p>
+      </div>
+      <div style="margin-left:auto;font-size:1.3rem;font-weight:800;color:var(--accent-gold);white-space:nowrap">+15 🪙</div>
+    </div>
+    <div class="glass-card" style="padding:1.5rem;display:flex;align-items:center;gap:1.5rem;">
+      <div style="font-size:2.5rem;">🎉</div>
+      <div>
+        <h4 style="font-weight:700;margin-bottom:0.3rem;">Welcome Bonus</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">New accounts receive 50 tokens just for signing up</p>
+      </div>
+      <div style="margin-left:auto;font-size:1.3rem;font-weight:800;color:var(--accent-gold);white-space:nowrap">+50 🪙</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="text-align:center;">
+  <div class="glass-card" style="padding:3rem;max-width:600px;margin:0 auto;">
+    <div style="font-size:3rem;margin-bottom:1rem;">🚀</div>
+    <h2 class="section-title">Ready to Start <span class="gradient-text">Earning?</span></h2>
+    <p class="section-subtitle mt-1">Join thousands of readers and start earning today.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="mt-3">
+      <a href="auth.html"     class="btn btn-primary">Create Free Account</a>
+      <a href="articles.html" class="btn btn-outline">Browse Articles</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>📚 KnowledgeCoin</h3>
+      <p>Rewarding curiosity, one article at a time.</p>
+      <div class="footer-social">
+        <a class="social-btn" href="#">𝕏</a>
+        <a class="social-btn" href="#">💬</a>
+        <a class="social-btn" href="#">✈️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <ul><li><a href="articles.html">Articles</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="about.html">About</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Account</h4>
+      <ul><li><a href="auth.html">Sign Up</a></li><li><a href="auth.html">Login</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 KnowledgeCoin. All rights reserved.</p></div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

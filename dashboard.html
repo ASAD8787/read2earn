@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — KnowledgeCoin</title>
+  <meta name="description" content="Your personal KnowledgeCoin dashboard. Track your token balance, reading stats, and activity." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/theme.js"></script>
+  <!-- Google AdSense Auto-Ads (Replace ca-pub with yours) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><span class="logo-icon">📚</span><span>KnowledgeCoin</span></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="dashboard.html" class="active" id="nav-dashboard">Dashboard</a></li>
+    <li><a href="#" id="nav-logout" style="color:#f87171">Logout</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️</button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<main style="padding-top:calc(var(--nav-height) + 2.5rem);padding-bottom:4rem;padding-left:5%;padding-right:5%;max-width:1200px;margin:0 auto;">
+
+  <!-- GREET -->
+  <div style="margin-bottom:2rem;">
+    <h1 id="dash-greet" class="section-title" style="font-size:1.8rem;">Welcome back! 👋</h1>
+    <p style="color:var(--text-muted);margin-top:0.3rem;">Here's your reading activity overview</p>
+  </div>
+
+  <!-- WALLET + STATS ROW -->
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;margin-bottom:1.5rem;" class="dash-top">
+    <!-- WALLET CARD -->
+    <div class="glass-card wallet-card" style="background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(6,182,212,0.08));">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+        <div>
+          <div class="wallet-label">Total Token Balance</div>
+          <div class="wallet-balance gradient-text" id="wallet-balance" data-balance="0">0</div>
+          <div class="wallet-change">↑ +75 today</div>
+        </div>
+        <div class="coin-xl spin-coin">🪙</div>
+      </div>
+      <div class="divider"></div>
+      <div style="font-size:0.85rem;color:var(--text-muted);">≈ $<span id="usd-value">0.00</span> USD equivalent</div>
+      <div class="mt-3" style="display:flex;gap:0.8rem;">
+        <a href="articles.html" class="btn btn-primary btn-sm w-full" style="justify-content:center;">📖 Earn More</a>
+        <button class="btn btn-outline btn-sm w-full" onclick="alert('Withdrawal coming soon!')">💰 Withdraw</button>
+      </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="dash-grid">
+      <div class="glass-card dash-stat-card">
+        <div class="ds-icon">📖</div>
+        <div class="ds-label">Articles Read</div>
+        <div class="ds-value gradient-text" id="stat-articles">0</div>
+        <div class="ds-sub">All time</div>
+      </div>
+      <div class="glass-card dash-stat-card">
+        <div class="ds-icon">⏱</div>
+        <div class="ds-label">Reading Time</div>
+        <div class="ds-value" style="color:var(--accent-cyan);" id="stat-time">0 min</div>
+        <div class="ds-sub">Total</div>
+      </div>
+      <div class="glass-card dash-stat-card">
+        <div class="ds-icon">🔥</div>
+        <div class="ds-label">Day Streak</div>
+        <div class="ds-value" style="color:#f97316;" id="stat-streak">1 days</div>
+        <div class="ds-sub">Keep it going!</div>
+      </div>
+      <div class="glass-card dash-stat-card">
+        <div class="ds-icon">🪙</div>
+        <div class="ds-label">Tokens Earned</div>
+        <div class="ds-value" style="color:var(--accent-gold);" id="stat-tokens">0</div>
+        <div class="ds-sub">All time</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- READING PROGRESS SECTION -->
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;margin-bottom:1.5rem;" class="dash-mid">
+    <!-- ACTIVITY FEED -->
+    <div class="glass-card" style="padding:1.5rem;">
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:1.2rem;">📋 Recent Activity</h3>
+      <div id="activity-feed"></div>
+    </div>
+
+    <!-- DAILY GOAL -->
+    <div class="glass-card" style="padding:1.5rem;">
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:1.2rem;">🎯 Daily Goal</h3>
+      <div style="margin-bottom:1rem;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;font-size:0.85rem;">
+          <span>Articles</span><span style="color:var(--accent-cyan);">2 / 5</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;font-size:0.85rem;">
+          <span>Tokens</span><span style="color:var(--accent-gold);">50 / 150</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:33%;background:var(--gradient-gold)"></div></div>
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;font-size:0.85rem;">
+          <span>Reading time</span><span style="color:#f97316;">12 / 30 min</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:40%;background:linear-gradient(90deg,#f97316,#f59e0b)"></div></div>
+      </div>
+      <a href="articles.html" class="btn btn-primary btn-sm w-full" style="justify-content:center;">Read Now →</a>
+
+      <!-- ── AD: SIDEBAR SQUARE ── -->
+      <div class="divider"></div>
+      <div class="ad-wrap ad-sidebar" style="cursor:pointer;" onclick="window.open('#','_blank')">
+        <span class="ad-label">Sponsored</span>
+        <div class="ad-sidebar-icon">💎</div>
+        <div class="ad-title">Premium Wallet App</div>
+        <div class="ad-desc">WalletPro — Store, send and earn 8% APY on your tokens. Free to download.</div>
+        <a href="#" class="btn btn-primary btn-sm w-full" style="justify-content:center;">Download Free</a>
+        <!-- Real AdSense Slot -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="ZZZZZZZZZZ"
+             data-ad-format="square"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="glass-card" style="padding:1.5rem;">
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:1.2rem;">⚡ Quick Actions</h3>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="articles.html?cat=tech"    class="btn btn-outline btn-sm">💻 Tech Articles</a>
+      <a href="articles.html?cat=finance" class="btn btn-outline btn-sm">💰 Finance</a>
+      <a href="articles.html?cat=health"  class="btn btn-outline btn-sm">🌿 Health</a>
+      <a href="articles.html?cat=science" class="btn btn-outline btn-sm">🔭 Science</a>
+      <button class="btn btn-gold btn-sm" onclick="alert('Redeem feature coming soon!')">🎁 Redeem Tokens</button>
+    </div>
+  </div>
+
+  <!-- ── AD: BOTTOM LEADERBOARD ── -->
+  <div style="margin-top:1.5rem;">
+    <div class="ad-wrap ad-leaderboard" style="cursor:pointer;" onclick="window.open('#','_blank')">
+      <span class="ad-label">Ad</span>
+      <div class="ad-icon" style="background:linear-gradient(135deg,#10b981,#06b6d4);">🎁</div>
+      <div class="ad-content">
+        <div class="ad-title">Redeem Your Tokens for Amazon Gift Cards</div>
+        <div class="ad-desc">GiftSwap converts your KnowledgeCoin tokens into real Amazon, Flipkart & Google Play gift cards instantly.</div>
+      </div>
+      <div class="ad-cta">
+        <a href="#" class="btn btn-primary btn-sm">Redeem Now →</a>
+      </div>
+      <!-- Real AdSense Slot -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+</main>
+
+<script src="js/nav.js"></script>
+<script src="js/points.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+// Update USD value
+const pts = getPoints();
+const usdEl = document.getElementById('usd-value');
+if (usdEl) usdEl.textContent = (pts * 0.001).toFixed(2);
+
+// Dashboard layout responsive tweak
+function fixDashLayout() {
+  const topGrid  = document.querySelector('.dash-top');
+  const midGrid  = document.querySelector('.dash-mid');
+  if (window.innerWidth <= 768) {
+    if (topGrid) topGrid.style.gridTemplateColumns = '1fr';
+    if (midGrid) midGrid.style.gridTemplateColumns = '1fr';
+  } else {
+    if (topGrid) topGrid.style.gridTemplateColumns = '1fr 2fr';
+    if (midGrid) midGrid.style.gridTemplateColumns = '2fr 1fr';
+  }
+}
+fixDashLayout();
+window.addEventListener('resize', fixDashLayout);
+</script>
+</body>
+</html>

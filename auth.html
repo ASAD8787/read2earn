@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — KnowledgeCoin</title>
+  <meta name="description" content="Create a free KnowledgeCoin account or sign in to start earning tokens for reading articles." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/theme.js"></script>
+  <style>
+    .auth-bg-orb {
+      position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;animation:pulse-glow 4s ease-in-out infinite;
+    }
+    .orb1{width:400px;height:400px;top:-100px;left:-100px;background:rgba(124,58,237,0.2);}
+    .orb2{width:300px;height:300px;bottom:-80px;right:-80px;background:rgba(6,182,212,0.15);}
+    .orb3{width:200px;height:200px;top:40%;right:20%;background:rgba(245,158,11,0.1);}
+  </style>
+</head>
+<body>
+
+<div class="auth-bg-orb orb1"></div>
+<div class="auth-bg-orb orb2"></div>
+<div class="auth-bg-orb orb3"></div>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><span class="logo-icon">📚</span><span>KnowledgeCoin</span></a>
+  <div class="nav-actions">
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️</button>
+    <a href="index.html" class="btn btn-outline btn-sm">← Back Home</a>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="glass-card auth-box slide-up">
+
+    <!-- Logo -->
+    <div class="auth-logo">
+      <div class="logo-big">📚</div>
+      <h2><span class="gradient-text">KnowledgeCoin</span></h2>
+      <p>Your knowledge deserves a reward</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-strip mb-2">
+      <button class="tab-btn active" id="login-tab">Sign In</button>
+      <button class="tab-btn" id="signup-tab">Create Account</button>
+    </div>
+
+    <!-- ── LOGIN FORM ── -->
+    <form id="login-form" autocomplete="on">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input class="form-input" id="login-email" type="email" placeholder="you@example.com" autocomplete="email" />
+          <span class="form-error" id="login-email-err"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-pass">Password</label>
+          <input class="form-input" id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password" />
+          <span class="form-error" id="login-pass-err"></span>
+        </div>
+        <span class="form-error" id="login-general-err" style="text-align:center;"></span>
+        <button type="submit" class="btn btn-primary w-full" style="justify-content:center;padding:0.9rem;">
+          🚀 Sign In
+        </button>
+      </div>
+    </form>
+
+    <!-- ── SIGN UP FORM ── -->
+    <form id="signup-form" class="hidden" autocomplete="on">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="form-group">
+          <label class="form-label" for="signup-name">Full Name</label>
+          <input class="form-input" id="signup-name" type="text" placeholder="Alex Johnson" autocomplete="name" />
+          <span class="form-error" id="signup-name-err"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-email">Email Address</label>
+          <input class="form-input" id="signup-email" type="email" placeholder="you@example.com" autocomplete="email" />
+          <span class="form-error" id="signup-email-err"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-pass">Password</label>
+          <input class="form-input" id="signup-pass" type="password" placeholder="Min. 6 characters" autocomplete="new-password" />
+          <span class="form-error" id="signup-pass-err"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-confirm">Confirm Password</label>
+          <input class="form-input" id="signup-confirm" type="password" placeholder="Repeat password" autocomplete="new-password" />
+          <span class="form-error" id="signup-confirm-err"></span>
+        </div>
+        <span class="form-error" id="signup-general-err" style="text-align:center;"></span>
+        <button type="submit" class="btn btn-primary w-full" style="justify-content:center;padding:0.9rem;">
+          🎉 Create Free Account
+        </button>
+      </div>
+    </form>
+
+    <!-- PERKS -->
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--text-muted);">
+        <span>✅</span><span>100% Free</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--text-muted);">
+        <span>🪙</span><span>50 Token Bonus</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--text-muted);">
+        <span>🔐</span><span>Secure & Private</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--text-muted);">
+        <span>📖</span><span>250+ Articles</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

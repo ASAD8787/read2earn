@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading — KnowledgeCoin</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/theme.js"></script>
+  <!-- Google AdSense Auto-Ads (Replace ca-pub with yours) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <style>
+    .reward-banner {
+      position:fixed;top:calc(var(--nav-height)+8px);left:50%;transform:translateX(-50%);z-index:1001;
+      display:flex;align-items:center;gap:10px;padding:0.8rem 1.8rem;border-radius:50px;
+      background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;font-weight:700;
+      box-shadow:0 4px 24px rgba(245,158,11,0.6);animation:slideDown 0.4s ease;
+    }
+    @keyframes slideDown{from{opacity:0;transform:translateX(-50%) translateY(-12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+  </style>
+</head>
+<body>
+
+<div id="reading-progress-bar"></div>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><span class="logo-icon">📚</span><span>KnowledgeCoin</span></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="dashboard.html" id="nav-dashboard">Dashboard</a></li>
+    <li><a href="#" id="nav-logout" style="color:#f87171">Logout</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️</button>
+    <a href="auth.html" class="btn btn-primary btn-sm" id="nav-login">Get Started</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div id="reward-banner" class="reward-banner hidden">
+  🎉 Congratulations! You earned <strong id="reward-amt">25</strong> tokens!
+</div>
+
+<main class="reader-layout">
+  <a href="articles.html" class="btn btn-outline btn-sm" style="margin-bottom:1.5rem;display:inline-flex;">← Back to Articles</a>
+
+  <div class="reader-header">
+    <img id="article-img" src="images/article_tech.png" alt="Article" class="reader-hero-img" />
+    <div style="display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <span class="badge badge-cyan" id="article-badge">💻 Tech</span>
+    </div>
+    <h1 class="reader-title" id="article-title">The Future of AI: What to Expect in 2026</h1>
+    <div class="reader-meta" id="article-meta">
+      <span>⏱ 5 min read</span>
+      <span>🪙 Earn 25 tokens</span>
+      <span>📅 March 10, 2026</span>
+    </div>
+  </div>
+
+  <div class="reader-body" id="article-body">
+    <p>Artificial intelligence is no longer a future concept — it is living infrastructure reshaping every industry, every government, and every home. As we enter 2026, the trajectory of AI development has accelerated beyond what most experts predicted even two years ago.</p>
+
+    <h2>The Era of Multimodal AI</h2>
+    <p>The shift from single-modality models to multimodal giants has been the defining story of 2025. Today's frontier models process text, images, audio, video, and even sensory data in unified architectures. This convergence unlocks capabilities that were previously impossible: real-time video analysis, complex reasoning about physical environments, and seamless cross-modal translation.</p>
+    <p>Companies like Google DeepMind, Anthropic, and OpenAI have each released models that score at or above human expert level on benchmarks spanning medicine, law, physics, and creative writing. The question is no longer whether AI can match humans — it's how we integrate it responsibly.</p>
+
+    <h2>AI Agents: The Next Frontier</h2>
+    <p>Perhaps the most transformative development heading into 2026 is the rise of autonomous AI agents. Unlike chatbots that respond to queries, agents plan, execute multi-step tasks, use tools, browse the web, write code, and take actions in digital environments — all with minimal human oversight.</p>
+    <p>Early enterprise deployments show agents reducing operational costs by 30–60% in domains like customer support, data analysis, and software development. Startups are racing to build "agent-native" applications, while incumbents scramble to retrofit their processes.</p>
+
+    <h2>Regulation and Governance</h2>
+    <p>With great power comes great legislative scrutiny. The EU AI Act came into full force in 2025, imposing strict transparency requirements on high-risk AI systems. The US has issued executive orders requiring safety evaluations before deploying models above certain compute thresholds. China continues to advance its own AI development under a structured state-guided framework.</p>
+    <p>What's clear is that the governance conversation — once dominated by academic philosophers — is now firmly in the hands of regulators, CEOs, and elected officials. The outcomes of these decisions will shape the technology's trajectory for decades.</p>
+
+    <!-- ── AD: MID-ARTICLE RECTANGLE ── -->
+    <div style="margin:2rem 0;display:flex;justify-content:center;">
+      <div class="ad-wrap ad-rectangle" style="max-width:480px;width:100%;cursor:pointer;" onclick="window.open('#','_blank')">
+        <span class="ad-label">Sponsored</span>
+        <div class="ad-img-placeholder" style="height:120px;font-size:2.5rem;">🎯</div>
+        <div class="ad-body">
+          <div class="ad-badge"><span class="badge badge-purple">🚀 Promoted</span></div>
+          <div class="ad-title">Earn More Tokens Faster with KnowledgeCoin Pro</div>
+          <div class="ad-desc">Get 3× token multiplier on every article. Only ₹99/month. Cancel anytime.</div>
+          <a href="auth.html" class="btn btn-primary btn-sm w-full" style="justify-content:center;">Upgrade to Pro →</a>
+        </div>
+        <!-- Real AdSense Slot -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="YYYYYYYYYY"
+             data-ad-format="rectangle"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
+    <h2>What to Watch in 2026</h2>
+    <p>Looking ahead, several developments are worth tracking: the commercialization of humanoid robotics powered by large models, the democratization of AI development tools enabling smaller players, breakthroughs in AI-driven drug discovery, and the potential emergence of systems approaching "reasoning" at a deep scientific level.</p>
+    <p>For the average person, this means AI will increasingly touch — and in many cases transform — your job, your healthcare, your education, and your daily decisions. Understanding this technology is no longer optional. It is essential.</p>
+
+    <h2>Conclusion</h2>
+    <p>The future of AI in 2026 and beyond is not a single path but a branching tree of possibilities. The technology's power is undeniable. How we — as individuals, companies, and societies — choose to guide, adopt, and govern it will define the next chapter of human civilization.</p>
+  </div>
+
+  <!-- ── AD: POST-ARTICLE LEADERBOARD ── -->
+  <div style="margin:1.5rem 0;">
+    <div class="ad-wrap ad-leaderboard" style="cursor:pointer;" onclick="window.open('#','_blank')">
+      <span class="ad-label">Ad</span>
+      <div class="ad-icon" style="background:var(--gradient-gold);">📈</div>
+      <div class="ad-content">
+        <div class="ad-title">You just earned tokens! Invest them wisely.</div>
+        <div class="ad-desc">CryptoSavings lets you grow your token balance with 12% APY. Trusted by 50,000+ users globally.</div>
+      </div>
+      <div class="ad-cta">
+        <a href="#" class="btn btn-gold btn-sm">Learn More →</a>
+      </div>
+      <!-- Real AdSense Slot -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div style="text-align:center;padding:2rem 0;">
+    <a href="articles.html" class="btn btn-outline">← Read More Articles</a>
+    <a href="dashboard.html" class="btn btn-primary" style="margin-left:0.8rem;">View My Wallet 🪙</a>
+  </div>
+</main>
+
+<!-- STICKY READER TOOLBAR -->
+<div class="reader-toolbar">
+  <div class="timer-widget">
+    <span>⏱ Reading time:</span>
+    <span class="timer-val" id="read-timer">00:00</span>
+  </div>
+  <div class="divider" style="width:1px;height:28px;margin:0;"></div>
+  <div style="display:flex;align-items:center;gap:6px;font-size:0.85rem;color:var(--text-secondary);">
+    <span>🪙</span>
+    <span id="current-pts" data-balance="0" style="font-weight:700;color:var(--accent-gold);">0</span>
+    <span>tokens</span>
+  </div>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/points.js"></script>
+<script src="js/reader.js"></script>
+<script>
+// Load article data from URL param
+const params = new URLSearchParams(location.search);
+const articleId = params.get('id') || 'art1';
+const articles  = JSON.parse(localStorage.getItem('r2e_articles') || '[]');
+const art = articles.find(a => a.id === articleId);
+
+if (art) {
+  document.getElementById('article-img').src   = art.img;
+  document.getElementById('article-title').textContent = art.title;
+  document.getElementById('article-meta').innerHTML =
+    `<span>⏱ ${art.readTime} min read</span><span>🪙 Earn ${art.reward} tokens</span><span>📅 March 10, 2026</span>`;
+  document.title = art.title + ' — KnowledgeCoin';
+  document.getElementById('reward-amt').textContent = art.reward;
+}
+
+// Update live token count display
+const ptsEl = document.getElementById('current-pts');
+if (ptsEl) {
+  ptsEl.textContent = getPoints().toLocaleString();
+  ptsEl.dataset.balance = getPoints();
+}
+</script>
+</body>
+</html>
