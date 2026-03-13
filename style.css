@@ -628,3 +628,452 @@ ul { list-style: none; }
   .ad-leaderboard .ad-cta { width: 100%; }
   .ad-leaderboard .ad-cta .btn { width: 100%; justify-content: center; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   UI ENHANCEMENTS — Premium Interactive Layer
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── 1. DEEP BACKGROUND GRADIENTS ─────────────────────── */
+body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 100% 110%, rgba(6,182,212,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 0% 70%, rgba(245,158,11,0.04) 0%, transparent 50%);
+}
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 100% 110%, rgba(6,182,212,0.04) 0%, transparent 55%);
+}
+
+/* ─── 2. NAV SCROLLED STATE ─────────────────────────────── */
+.nav.scrolled {
+  background: rgba(6,7,18,0.98) !important;
+  border-bottom-color: rgba(124,58,237,0.18) !important;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.55), 0 1px 0 rgba(124,58,237,0.12) !important;
+}
+[data-theme="light"] .nav.scrolled {
+  background: rgba(235,238,255,0.98) !important;
+  box-shadow: 0 4px 30px rgba(124,58,237,0.1), 0 1px 0 rgba(124,58,237,0.1) !important;
+}
+
+/* ─── 3. GLASS CARD ENHANCED ────────────────────────────── */
+.glass-card {
+  will-change: transform;
+  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124,58,237,0.28);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(124,58,237,0.2),
+    0 0 40px rgba(124,58,237,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* ─── 4. ARTICLE CARD ────────────────────────────────────── */
+.article-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  border-color: rgba(124,58,237,0.3);
+  box-shadow:
+    0 30px 64px rgba(124,58,237,0.22),
+    0 0 0 1px rgba(124,58,237,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.article-card:hover .card-img { transform: scale(1.08); }
+
+/* ─── 5. BUTTON SHINE + RIPPLE ──────────────────────────── */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -130%;
+  width: 75%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn:hover::after { left: 155%; }
+.btn-primary:active { transform: scale(0.97); }
+.btn-gold:active    { transform: scale(0.97); }
+.btn-ripple-el {
+  position: absolute; border-radius: 50%;
+  background: rgba(255,255,255,0.28);
+  transform: scale(0); pointer-events: none;
+  animation: btn-ripple 0.65s ease-out forwards;
+}
+@keyframes btn-ripple { to { transform: scale(5); opacity: 0; } }
+
+/* ─── 6. STEP NUMBER PULSE RING ──────────────────────────── */
+.step-num {
+  animation: step-ring 2.8s ease-in-out infinite;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.45);
+}
+@keyframes step-ring {
+  0%   { box-shadow: 0 4px 16px rgba(124,58,237,0.45), 0 0 0 0   rgba(124,58,237,0.5); }
+  60%  { box-shadow: 0 4px 16px rgba(124,58,237,0.3),  0 0 0 14px rgba(124,58,237,0); }
+  100% { box-shadow: 0 4px 16px rgba(124,58,237,0.45), 0 0 0 0   rgba(124,58,237,0); }
+}
+.step-icon {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.step-card:hover .step-icon { transform: scale(1.32) rotate(-10deg); }
+
+/* ─── 7. FEATURE ICON BOX ───────────────────────────────── */
+.feature-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 70px; height: 70px; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.14), rgba(6,182,212,0.08));
+  border: 1px solid rgba(124,58,237,0.2);
+  font-size: 2rem;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
+  margin-bottom: 1.2rem;
+}
+.feature-card:hover .feature-icon {
+  transform: translateY(-7px) scale(1.12) rotate(4deg);
+  box-shadow: 0 14px 30px rgba(124,58,237,0.32);
+  background: linear-gradient(135deg, rgba(124,58,237,0.24), rgba(6,182,212,0.14));
+  border-color: rgba(124,58,237,0.38);
+}
+
+/* ─── 8. STATS BAR VALUES GRADIENT ──────────────────────── */
+.stat-val {
+  background: var(--gradient-btn);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.stats-bar {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.05);
+  border-color: rgba(124,58,237,0.14);
+}
+
+/* ─── 9. WALLET CARD WATERMARK ───────────────────────────── */
+.wallet-card { position: relative; overflow: hidden; }
+.wallet-card::after {
+  content: '🪙';
+  position: absolute; right: -18px; bottom: -16px;
+  font-size: 7.5rem; opacity: 0.04;
+  transform: rotate(-16deg); pointer-events: none; user-select: none;
+}
+.wallet-balance { text-shadow: 0 0 40px rgba(124,58,237,0.3); }
+
+/* ─── 10. DASHBOARD STAT CARD TOP BAR ───────────────────── */
+.dash-stat-card { position: relative; overflow: hidden; }
+.dash-stat-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--gradient-btn);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dash-stat-card:nth-child(2)::before { background: linear-gradient(90deg, #06b6d4, #10b981); }
+.dash-stat-card:nth-child(3)::before { background: linear-gradient(90deg, #f97316, #f59e0b); }
+.dash-stat-card:nth-child(4)::before { background: var(--gradient-gold); }
+.dash-stat-card:hover::before { transform: scaleX(1); }
+
+/* ─── 11. ACTIVITY ITEM LEFT ACCENT ─────────────────────── */
+.activity-item {
+  position: relative; overflow: hidden;
+  transition: transform var(--transition), background var(--transition), border-color var(--transition);
+}
+.activity-item::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--gradient-btn);
+  transform: scaleY(0); transform-origin: top;
+  transition: transform 0.3s ease;
+}
+.activity-item:hover {
+  transform: translateX(6px);
+  background: rgba(124,58,237,0.07) !important;
+  border-color: rgba(124,58,237,0.2) !important;
+}
+.activity-item:hover::before { transform: scaleY(1); }
+
+/* ─── 12. PROGRESS BAR ANIMATED FLOW ────────────────────── */
+.progress-fill {
+  background: linear-gradient(90deg, #7c3aed, #06b6d4, #10b981, #7c3aed);
+  background-size: 300% 100%;
+  animation: progress-flow 3.5s linear infinite;
+}
+@keyframes progress-flow { 0% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
+
+/* ─── 13. BADGE GLOW ON HOVER ────────────────────────────── */
+.badge { transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default; }
+.badge-purple:hover { transform: scale(1.06); box-shadow: 0 0 14px rgba(124,58,237,0.5); }
+.badge-cyan:hover   { transform: scale(1.06); box-shadow: 0 0 14px rgba(6,182,212,0.5);  }
+.badge-gold:hover   { transform: scale(1.06); box-shadow: 0 0 14px rgba(245,158,11,0.5); }
+.badge-green:hover  { transform: scale(1.06); box-shadow: 0 0 14px rgba(16,185,129,0.5); }
+
+/* ─── 14. SOCIAL BUTTON ENHANCED ────────────────────────── */
+.social-btn:hover {
+  background: var(--gradient-btn) !important;
+  border-color: transparent !important;
+  transform: translateY(-5px) scale(1.14);
+  box-shadow: 0 8px 22px rgba(124,58,237,0.4);
+}
+
+/* ─── 15. SEARCH INPUT EXPAND ───────────────────────────── */
+.search-input { transition: width 0.35s ease, border-color var(--transition), box-shadow 0.3s ease; }
+.search-input:focus {
+  width: 300px;
+  box-shadow: 0 0 0 3px rgba(6,182,212,0.15), 0 4px 20px rgba(6,182,212,0.1);
+}
+
+/* ─── 16. FILTER CHIP HOVER ──────────────────────────────── */
+.filter-chip:hover:not(.active) {
+  background: rgba(124,58,237,0.12);
+  border-color: rgba(124,58,237,0.4);
+  color: var(--text-primary);
+}
+
+/* ─── 17. FORM INPUT GLOW ───────────────────────────────── */
+.form-input:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.form-input:focus { background: rgba(124,58,237,0.05); }
+
+/* ─── 18. READER META PILLS ──────────────────────────────── */
+.reader-meta span {
+  padding: 0.3rem 0.8rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px; font-size: 0.82rem;
+  transition: all 0.22s ease;
+}
+.reader-meta span:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+/* ─── 19. READING PROGRESS RAINBOW BAR ──────────────────── */
+#reading-progress-bar {
+  background: linear-gradient(90deg, #7c3aed, #06b6d4, #10b981, #f59e0b, #ef4444, #7c3aed);
+  background-size: 300% 100%;
+  animation: rainbow-bar 4s linear infinite;
+  box-shadow: 0 0 8px rgba(124,58,237,0.55);
+  height: 3px;
+}
+@keyframes rainbow-bar { 0% { background-position: 0% 0; } 100% { background-position: 300% 0; } }
+
+/* ─── 20. READER BODY ENHANCED ───────────────────────────── */
+.reader-body { line-height: 1.95; }
+.reader-body p { font-size: 1.05rem; }
+.reader-body p:first-of-type::first-letter {
+  font-size: 3.4rem; font-weight: 900;
+  float: left; line-height: 0.78; margin: 0.06em 0.12em 0 0;
+  background: var(--gradient-btn); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.reader-body h2 {
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  font-size: 1.5rem; letter-spacing: -0.02em;
+}
+
+/* ─── 21. READER TOOLBAR BREATHING GLOW ─────────────────── */
+.reader-toolbar {
+  animation: toolbar-breathe 4s ease-in-out infinite;
+}
+@keyframes toolbar-breathe {
+  0%, 100% { box-shadow: 0 8px 40px rgba(124,58,237,0.25), 0 0 0 1px rgba(124,58,237,0.12); }
+  50%       { box-shadow: 0 8px 50px rgba(124,58,237,0.45), 0 0 0 1px rgba(124,58,237,0.3); }
+}
+
+/* ─── 22. COIN 3D SPIN ─────────────────────────────────────── */
+@keyframes spin-coin-3d {
+  0%   { transform: rotateY(0deg)   scale(1); }
+  25%  { transform: rotateY(90deg)  scale(0.85); }
+  50%  { transform: rotateY(180deg) scale(1); }
+  75%  { transform: rotateY(270deg) scale(0.85); }
+  100% { transform: rotateY(360deg) scale(1); }
+}
+.spin-coin { animation: spin-coin-3d 3.2s linear infinite; }
+
+/* ─── 23. DIVIDER GRADIENT ───────────────────────────────── */
+.divider {
+  background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(6,182,212,0.3), transparent);
+  height: 1px;
+}
+
+/* ─── 24. SECTION LABEL SHINE ───────────────────────────── */
+.section-label { position: relative; overflow: hidden; isolation: isolate; }
+.section-label::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.35), transparent);
+  transform: translateX(-100%);
+  animation: label-shine 3.5s ease-in-out infinite;
+  border-radius: inherit;
+}
+@keyframes label-shine {
+  0%, 55%, 100% { transform: translateX(-110%); }
+  35% { transform: translateX(110%); }
+}
+
+/* ─── 25. HERO DEPTH ─────────────────────────────────────── */
+.hero-content h1 { text-shadow: 0 0 80px rgba(124,58,237,0.18); }
+.hero-img-wrap {
+  border: 1px solid rgba(124,58,237,0.18);
+  box-shadow: var(--shadow-glow), var(--shadow-card), 0 0 80px rgba(6,182,212,0.07);
+}
+
+/* ─── 26. ACTIVE NAV GLOW ────────────────────────────────── */
+.nav-links a.active {
+  text-shadow: 0 0 14px rgba(6,182,212,0.65);
+  font-weight: 600;
+}
+
+/* ─── 27. LOGO PULSE ─────────────────────────────────────── */
+.nav-brand .logo-icon {
+  display: inline-block;
+  animation: logo-pulse 4.5s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes logo-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  30%       { transform: scale(1.08) rotate(-4deg); }
+  70%       { transform: scale(1.08) rotate(4deg); }
+}
+
+/* ─── 28. SCROLL REVEAL CLASSES ──────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1), transform 0.75s cubic-bezier(0.4,0,0.2,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s !important; }
+.reveal-delay-2 { transition-delay: 0.2s !important; }
+.reveal-delay-3 { transition-delay: 0.3s !important; }
+.reveal-delay-4 { transition-delay: 0.4s !important; }
+
+/* ─── 29. POINTS POPUP ENHANCED ─────────────────────────── */
+.points-popup {
+  font-size: 1.1rem;
+  box-shadow: 0 4px 30px rgba(245,158,11,0.65), 0 0 0 1px rgba(245,158,11,0.3);
+  letter-spacing: 0.02em;
+}
+
+/* ─── 30. FOOTER SOCIAL ENHANCED ────────────────────────── */
+.footer-social .social-btn:hover {
+  background: var(--gradient-btn) !important;
+  border-color: transparent !important;
+  box-shadow: 0 5px 18px rgba(124,58,237,0.4);
+  transform: translateY(-5px) scale(1.16);
+}
+
+/* ─── 31. AUTH BOX GLOW ──────────────────────────────────── */
+.auth-box {
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,58,237,0.15), 0 0 60px rgba(124,58,237,0.07);
+}
+.auth-box:hover {
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,58,237,0.25), 0 0 80px rgba(124,58,237,0.12);
+}
+
+/* ─── 32. TAB STRIP ENHANCED ────────────────────────────── */
+.tab-btn.active {
+  box-shadow: 0 4px 16px rgba(124,58,237,0.35);
+  letter-spacing: 0.01em;
+}
+.tab-btn:not(.active):hover {
+  color: var(--text-primary);
+  background: rgba(124,58,237,0.08);
+}
+
+/* ─── 33. CTA SECTION CARD ENHANCED ─────────────────────── */
+.section:last-of-type .glass-card,
+.glass-card[style*="linear-gradient(135deg, rgba(124,58,237"] {
+  box-shadow:
+    var(--shadow-card),
+    0 0 60px rgba(124,58,237,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+}
+
+/* ─── 34. CARD REWARD AREA ───────────────────────────────── */
+.card-reward {
+  background: linear-gradient(135deg, rgba(245,158,11,0.04), transparent);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  margin: 0 -1.2rem -1.2rem;
+  padding: 0.8rem 1.2rem;
+}
+
+/* ─── 35. HAMBURGER ANIMATION ON OPEN ────────────────────── */
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ─── 36. SCROLLBAR ENHANCED ────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-purple), var(--accent-cyan)); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); }
+
+/* ─── 37. SECTION HEADER UNDERLINE DECORATION ───────────── */
+.section-title { position: relative; display: inline-block; }
+
+/* ─── 38. ACTIVITY ICON ENHANCED ────────────────────────── */
+.activity-icon {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.activity-item:hover .activity-icon {
+  transform: scale(1.12) rotate(-5deg);
+  background: rgba(124,58,237,0.25) !important;
+}
+
+/* ─── 39. STEP CARD CONNECTOR DOTS ──────────────────────── */
+@media (min-width: 769px) {
+  .step-card:not(:last-child)::after {
+    content: '›  ›';
+    position: absolute; right: -1.4rem; top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem; color: rgba(124,58,237,0.3);
+    letter-spacing: -4px;
+    pointer-events: none;
+  }
+  .step-card { position: relative; overflow: visible; }
+}
+
+/* ─── 40. HERO BADGE SHINE ───────────────────────────────── */
+.badge-purple::after {
+  content: '';
+  position: absolute; top: 0; left: -110%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.3), transparent);
+  animation: badge-shine 4s ease-in-out infinite;
+  border-radius: inherit;
+}
+.badge { position: relative; isolation: isolate; overflow: hidden; }
+@keyframes badge-shine { 0%, 70%, 100% { left: -110%; } 50% { left: 110%; } }
+
+/* ─── 41. LOADING SHIMMER FOR IMAGES ─────────────────────── */
+.card-img { transition: transform 0.4s ease, opacity 0.3s ease; }
+.card-img:not([src]) { background: linear-gradient(90deg, var(--bg-card) 25%, rgba(124,58,237,0.08) 50%, var(--bg-card) 75%); background-size: 200% 100%; animation: img-shimmer 1.5s infinite; }
+@keyframes img-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* ─── 42. QUICK ACTIONS BUTTONS ROW ──────────────────────── */
+.btn-outline:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6,182,212,0.15);
+}
+
+/* ─── 43. BOTTOM AD STICKY ENHANCED ─────────────────────── */
+.ad-sticky-bottom {
+  animation: slide-up-sticky 0.4s ease forwards;
+}
+@keyframes slide-up-sticky { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+/* ─── 44. FEATURE SECTION ALTERNATING BG ─────────────────── */
+.section + .section:not(:last-of-type) .glass-card:hover {
+  border-color: rgba(6,182,212,0.3);
+  box-shadow: 0 24px 60px rgba(6,182,212,0.14), 0 0 0 1px rgba(6,182,212,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* ─── 45. TOKEN ECONOMY LIST CARDS ───────────────────────── */
+.glass-card[style*="display:flex;align-items:center"]:hover {
+  border-color: rgba(245,158,11,0.25);
+  box-shadow: 0 16px 40px rgba(245,158,11,0.1), 0 0 0 1px rgba(245,158,11,0.15);
+}
+
+@media (max-width: 768px) {
+  .search-input:focus { width: 100%; }
+  .step-card::after { display: none; }
+  .reader-body p:first-of-type::first-letter { font-size: 2.5rem; }
+}
