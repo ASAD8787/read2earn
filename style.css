@@ -1077,3 +1077,136 @@ body {
   .step-card::after { display: none; }
   .reader-body p:first-of-type::first-letter { font-size: 2.5rem; }
 }
+
+/* ─── 46. WALLET ACTION HUB + WITHDRAW PANEL ────────────── */
+.wallet-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.wallet-action-btn {
+  justify-content: center;
+  font-weight: 600;
+}
+.wallet-tip {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.wallet-tip a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+.wallet-tip a:hover {
+  color: var(--text-primary);
+}
+
+.withdraw-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+}
+.withdraw-modal.open {
+  display: block;
+}
+.withdraw-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(3px);
+}
+.withdraw-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(92vw, 520px);
+  transform: translate(-50%, -50%);
+  padding: 1.4rem;
+  border-color: rgba(124,58,237,0.28);
+  background: linear-gradient(150deg, rgba(12,15,32,0.97), rgba(7,10,23,0.95));
+}
+[data-theme="light"] .withdraw-panel {
+  background: linear-gradient(150deg, rgba(245,247,255,0.98), rgba(236,241,255,0.96));
+}
+.withdraw-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.withdraw-head h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.withdraw-close {
+  border: 1px solid var(--border-glass);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border-radius: 12px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+.withdraw-sub {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.withdraw-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.withdraw-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 0.8rem;
+}
+.withdraw-stat span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+.withdraw-stat strong {
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+.withdraw-note {
+  margin-top: 0.9rem;
+  background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.28);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  color: #fbbf24;
+  font-size: 0.83rem;
+}
+.withdraw-note.success {
+  color: #34d399;
+  background: rgba(16,185,129,0.12);
+  border-color: rgba(16,185,129,0.3);
+}
+.withdraw-actions {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.withdraw-actions .btn {
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .wallet-actions,
+  .withdraw-stats,
+  .withdraw-actions {
+    grid-template-columns: 1fr;
+  }
+}

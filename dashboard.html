@@ -48,9 +48,15 @@
       </div>
       <div class="divider"></div>
       <div style="font-size:0.85rem;color:var(--text-muted);">≈ $<span id="usd-value">0.00</span> USD equivalent</div>
-      <div class="mt-3" style="display:flex;gap:0.8rem;">
-        <a href="articles.html" class="btn btn-primary btn-sm w-full" style="justify-content:center;">📖 Earn More</a>
-        <button class="btn btn-outline btn-sm w-full" onclick="alert('Withdrawal coming soon!')">💰 Withdraw</button>
+      <div class="wallet-actions mt-3">
+        <a href="articles.html" class="btn btn-primary btn-sm wallet-action-btn" style="justify-content:center;">Earn More</a>
+        <button class="btn btn-outline btn-sm wallet-action-btn" id="open-withdraw" type="button">Withdraw</button>
+      </div>
+      <div class="wallet-tip" id="wallet-tip">
+        <span>Tips:</span>
+        <a href="articles.html?cat=finance">Read finance</a>
+        <span>•</span>
+        <a href="articles.html?cat=tech">Read tech</a>
       </div>
     </div>
 
@@ -173,6 +179,32 @@
   </div>
 
 </main>
+
+<div class="withdraw-modal" id="withdraw-modal" aria-hidden="true">
+  <div class="withdraw-backdrop" id="withdraw-close-backdrop"></div>
+  <div class="withdraw-panel glass-card" role="dialog" aria-modal="true" aria-labelledby="withdraw-title">
+    <div class="withdraw-head">
+      <h3 id="withdraw-title">Withdraw Tokens</h3>
+      <button class="withdraw-close" id="withdraw-close-btn" type="button" aria-label="Close withdraw panel">✕</button>
+    </div>
+    <p class="withdraw-sub">Convert your balance to USD and request a payout.</p>
+    <div class="withdraw-stats">
+      <div class="withdraw-stat">
+        <span>Available tokens</span>
+        <strong id="withdraw-balance">0</strong>
+      </div>
+      <div class="withdraw-stat">
+        <span>Estimated USD</span>
+        <strong id="withdraw-usd">$0.00</strong>
+      </div>
+    </div>
+    <div class="withdraw-note" id="withdraw-note">Minimum 500 tokens required for withdrawal.</div>
+    <div class="withdraw-actions">
+      <button class="btn btn-primary btn-sm" id="withdraw-request" type="button">Request Withdrawal</button>
+      <a href="articles.html" class="btn btn-outline btn-sm">Earn More Tokens</a>
+    </div>
+  </div>
+</div>
 
 <script src="js/nav.js"></script>
 <script src="js/points.js"></script>

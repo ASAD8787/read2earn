@@ -48,6 +48,68 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`).join('');
   }
 
+  // Withdraw panel interactions
+  const withdrawOpenBtn = document.getElementById('open-withdraw');
+  const withdrawModal = document.getElementById('withdraw-modal');
+  const withdrawCloseBtn = document.getElementById('withdraw-close-btn');
+  const withdrawCloseBackdrop = document.getElementById('withdraw-close-backdrop');
+  const withdrawBalance = document.getElementById('withdraw-balance');
+  const withdrawUsd = document.getElementById('withdraw-usd');
+  const withdrawNote = document.getElementById('withdraw-note');
+  const withdrawRequest = document.getElementById('withdraw-request');
+
+  function setWithdrawStats() {
+    if (withdrawBalance) withdrawBalance.textContent = points.toLocaleString();
+    if (withdrawUsd) withdrawUsd.textContent = '$' + (points * 0.001).toFixed(2);
+    if (!withdrawNote) return;
+
+    if (points >= 500) {
+      withdrawNote.textContent = 'You are eligible. We will connect payout methods in the next update.';
+      withdrawNote.classList.add('success');
+    } else {
+      const left = 500 - points;
+      withdrawNote.textContent = `Minimum 500 tokens required. You need ${left.toLocaleString()} more tokens.`;
+      withdrawNote.classList.remove('success');
+    }
+  }
+
+  function openWithdrawPanel() {
+    if (!withdrawModal) return;
+    setWithdrawStats();
+    withdrawModal.classList.add('open');
+    withdrawModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeWithdrawPanel() {
+    if (!withdrawModal) return;
+    withdrawModal.classList.remove('open');
+    withdrawModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (withdrawOpenBtn) withdrawOpenBtn.addEventListener('click', openWithdrawPanel);
+  if (withdrawCloseBtn) withdrawCloseBtn.addEventListener('click', closeWithdrawPanel);
+  if (withdrawCloseBackdrop) withdrawCloseBackdrop.addEventListener('click', closeWithdrawPanel);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeWithdrawPanel();
+  });
+
+  if (withdrawRequest) {
+    withdrawRequest.addEventListener('click', () => {
+      if (!withdrawNote) return;
+      if (points >= 500) {
+        withdrawNote.textContent = 'Request submitted. Payout processing feature will be enabled soon.';
+        withdrawNote.classList.add('success');
+      } else {
+        const left = 500 - points;
+        withdrawNote.textContent = `Not enough tokens yet. Read ${Math.ceil(left / 25)} more average articles to unlock withdraw.`;
+        withdrawNote.classList.remove('success');
+      }
+    });
+  }
+
   function setEl(id, val) {
     const el = document.getElementById(id);
     if (el) el.textContent = val;
