@@ -6,3 +6,6 @@ node_modules/
 _agent/
 _agents/
 .agent/
+
+# Local Netlify folder
+.netlify
